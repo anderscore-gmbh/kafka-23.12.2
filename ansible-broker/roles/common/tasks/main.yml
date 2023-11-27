@@ -1,0 +1,32 @@
+---
+- name: install common packages
+  apt:
+    state: present
+    update_cache: yes
+    name:
+    - aptitude
+    - dbus
+    - sudo
+    - git
+    - htop
+    - vim
+    - tmux
+    - mosh
+    - needrestart
+    - apt-transport-https
+    - inetutils-ping
+    - dnsutils
+
+- hostname: name={{ inventory_hostname }}
+- lineinfile:
+    dest: /etc/hosts
+    regexp: "^127.0.1.1"
+    line: "127.0.1.1       {{ inventory_hostname }} {{ inventory_hostname_short }}"
+    state: present
+
+
+- name: Create vim configuration in /root/.vimrc and /etc/skel/.vimrc
+  copy: src="files/vimrc" dest="{{ item }}" owner="root"
+  with_items:
+  - /root/.vimrc
+  - /etc/skel/.vimrc

@@ -1,0 +1,7 @@
+unattended_origins_patterns:
+- 'origin=Debian'
+- 'o=Raspbian'
+- 'o=packages.gitlab.com/gitlab/gitlab-ce'
+
+ansible_mail_sender: vm
+ansible_mail_passwd: etKZTnuKC6v2

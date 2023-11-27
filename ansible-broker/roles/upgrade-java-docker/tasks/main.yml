@@ -1,0 +1,22 @@
+---
+- name: Update System Package Cache
+  apt: update_cache=yes
+
+- name: install common packages
+  apt:
+    state: present
+    update_cache: yes
+    name:
+    - openjdk-17-jdk
+
+- name: Upgrade System Packages
+  apt: upgrade=full
+
+- name: Install Docker
+  ansible.builtin.shell: cd ~ && curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+
+- name: Link docker-compose to /usr/bin
+  ansible.builtin.file:
+    src: /usr/libexec/docker/cli-plugins/docker-compose
+    dest: /usr/bin/docker-compose
+    state: link

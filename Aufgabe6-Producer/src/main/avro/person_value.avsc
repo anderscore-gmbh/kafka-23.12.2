@@ -1,0 +1,9 @@
+{"namespace": "gs.model",
+ "type": "record",
+ "name": "PersonValue",
+ "fields": [
+     {"name": "firstName", "type": "string", "doc" : "Vorname"},
+     {"name": "lastName", "type": "string", "doc" : "Nachname"},
+     {"name": "steuerId", "type": "string", "doc" : "Steuer-ID"}
+ ]
+}

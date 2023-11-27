@@ -1,0 +1,3 @@
+[servers]
+broker-1.k.anderscore.com ansible_user=root
+broker-2.k.anderscore.com ansible_user=root

@@ -1,0 +1,6 @@
+---
+- hosts: servers
+  roles:
+    - common
+    - jnv.unattended-upgrades
+    - upgrade-java-docker

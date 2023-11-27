@@ -1,0 +1,6 @@
+com/anderscore/App.class
+gs/model/PersonKey.class
+gs/model/PersonValue.class
+gs/model/PersonKey$Builder.class
+com/anderscore/HelloProducer.class
+gs/model/PersonValue$Builder.class

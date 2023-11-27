@@ -1,0 +1,17 @@
+---
+- name: Install sudo and rsync
+  apt:
+    name:
+    - sudo
+    - rsync
+
+- name: Create Backuppc User
+  user: name=backuppc shell=/bin/bash
+
+- name: Register SSH-Key for backuppc
+  authorized_key: user=backuppc key="{{ item }}"
+  with_file:
+    - public_keys/backuppc
+
+- name: backuppc may execute sudo
+  lineinfile: "dest=/etc/sudoers line='backuppc ALL=NOPASSWD: /usr/bin/rsync --server --sender *'"
